@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day - Wishes & Quotes</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(165deg, #fce4e8 0%, #fcccd9 40%, #ffd9e2 100%);
+            font-family: 'Quicksand', sans-serif;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* floating hearts background */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 120, 150, 0.2);
+            font-size: 2.2rem;
+            animation: levitate 14s infinite linear;
+            user-select: none;
+        }
+
+        @keyframes levitate {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0.2; }
+            50% { opacity: 0.6; transform: translateY(40vh) rotate(180deg) scale(1.3); }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(0.9); opacity: 0; }
+        }
+
+        /* main container */
+        .greeting-container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 80px 20px 80px 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 40px 60px rgba(200, 70, 100, 0.25),
+                        0 0 0 4px rgba(255, 255, 255, 0.8) inset;
+            border: 2px solid rgba(255, 220, 230, 0.9);
+            z-index: 10;
+            position: relative;
+        }
+
+        /* header */
+        .valentine-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: #a1304b;
+            text-shadow: 4px 4px 0 #ffdae4, 2px 2px 15px #ffb0c3;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-sub {
+            font-size: 1.5rem;
+            color: #642842;
+            background: rgba(255, 255, 255, 0.6);
+            display: inline-block;
+            padding: 0.4rem 2.5rem;
+            border-radius: 60px;
+            border: 2px solid white;
+            backdrop-filter: blur(4px);
+        }
+
+        .header-sub i {
+            color: #f35477;
+            margin: 0 8px;
+        }
+
+        /* quote grid */
+        .quote-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .quote-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            padding: 2rem 1.6rem;
+            border-radius: 40px 10px 40px 10px;
+            box-shadow: 0 15px 25px rgba(190, 70, 100, 0.2),
+                        0 0 0 2px rgba(255, 255, 255, 0.7) inset;
+            transition: all 0.25s ease;
+            border: 1px solid white;
+            text-align: center;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 35px rgba(210, 70, 110, 0.3);
+        }
+
+        .quote-icon {
+            font-size: 2.2rem;
+            color: #f55d81;
+            margin-bottom: 0.8rem;
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: #4f2639;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: #a03453;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-top: 2px dashed #ffb8cb;
+            padding-top: 0.8rem;
+        }
+
+        /* wishes section */
+        .wishes-section {
+            margin: 3.5rem 0 2rem;
+        }
+
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: #912d4b;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 0 #ffe2ec;
+        }
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .wish-item {
+            background: rgba(255, 245, 250, 0.7);
+            backdrop-filter: blur(4px);
+            padding: 2rem 1.5rem;
+            border-radius: 30px 10px 30px 10px;
+            text-align: center;
+            border: 3px solid white;
+            box-shadow: 0 10px 18px #fba5bd;
+            transition: 0.2s;
+        }
+
+        .wish-item:hover {
+            transform: scale(1.02);
+            background: rgba(255, 235, 245, 0.9);
+        }
+
+        .wish-emoji {
+            font-size: 2.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .wish-text {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #5f2d41;
+            line-height: 1.6;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .wish-sub {
+            font-size: 1.1rem;
+            color: #9d4b63;
+            margin-top: 0.7rem;
+            font-weight: 300;
+        }
+
+        /* romantic footer message */
+        .footer-message {
+            margin-top: 3.5rem;
+            text-align: center;
+            background: rgba(255, 215, 225, 0.6);
+            border-radius: 100px 20px 100px 20px;
+            padding: 2rem 2rem;
+            border: 3px solid white;
+            box-shadow: 0 20px 30px #faa7bb;
+        }
+
+        .footer-message p {
+            font-size: 2rem;
+            font-family: 'Great Vibes', cursive;
+            color: #992d4f;
+            line-height: 1.5;
+        }
+
+        .footer-message i {
+            color: #f55078;
+            margin: 0 10px;
+        }
+
+        .footer-hearts {
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin-top: 0.8rem;
+            color: #fc698d;
+        }
+
+        /* small decorative elements */
+        .decoration {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 20px 0 10px;
+            flex-wrap: wrap;
+        }
+
+        .decoration span {
+            background: rgba(255, 255, 255, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #e0446b;
+            border: 2px solid white;
+        }
+
+        @media (max-width: 600px) {
+            .greeting-container { padding: 2rem 1rem; }
+            .header-title { font-size: 3.5rem; }
+            .section-title { font-size: 2.8rem; }
+            .footer-message p { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- floating hearts -->
+    <div class="floating-bg" id="floatingBg"></div>
+
+    <main class="greeting-container">
+        <div class="valentine-header">
+            <h1 class="header-title">Happy Valentine's Day My Love</h1>
+            <div class="header-sub">
+                <i class="fas fa-heart"></i> Aakanksha Garg <i class="fas fa-heart"></i>
+            </div>
+        </div>
+
+        <!-- decoration hearts -->
+        <div class="decoration">
+            <span><i class="fas fa-heart"></i></span>
+            <span><i class="fas fa-heart"></i></span>
+            <span><i class="fas fa-heart"></i></span>
+            <span><i class="fas fa-heart"></i></span>
+            <span><i class="fas fa-heart"></i></span>
+        </div>
+
+        <!-- QUOTES SECTION -->
+        <div class="quote-grid">
+            <!-- Quote 1 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“I saw that you were perfect, and so I loved you. Then I saw that you were not perfect and I loved you even more.”</div>
+                <div class="quote-author">— Angelita Lim</div>
+            </div>
+            <!-- Quote 2 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“You know you're in love when you can't fall asleep because reality is finally better than your dreams.”</div>
+                <div class="quote-author">— Dr. Seuss</div>
+            </div>
+            <!-- Quote 3 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“The best thing to hold onto in life is each other.”</div>
+                <div class="quote-author">— Audrey Hepburn</div>
+            </div>
+            <!-- Quote 4 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“I love you not only for what you are, but for what I am when I am with you.”</div>
+                <div class="quote-author">— Elizabeth Barrett Browning</div>
+            </div>
+            <!-- Quote 5 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“To love and be loved is to feel the sun from both sides.”</div>
+                <div class="quote-author">— David Viscott</div>
+            </div>
+            <!-- Quote 6 -->
+            <div class="quote-card">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <div class="quote-text">“You are my heart, my life, my one and only thought.”</div>
+                <div class="quote-author">— Arthur Conan Doyle</div>
+            </div>
+        </div>
+
+        <!-- WISHES SECTION (lovely messages) -->
+        <div class="wishes-section">
+            <h2 class="section-title">Sweet Valentine Wishes</h2>
+            <div class="wishes-grid">
+                <!-- wish 1 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">💘</div>
+                    <div class="wish-text">You make my heart skip a beat.</div>
+                    <div class="wish-sub">every single day</div>
+                </div>
+                <!-- wish 2 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">🌹</div>
+                    <div class="wish-text">Roses are red, my love is true, happy Valentine's to someone so wonderful!</div>
+                    <div class="wish-sub">with all my heart</div>
+                </div>
+                <!-- wish 3 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">💞</div>
+                    <div class="wish-text">Falling in love with you was the sweetest fall of my life.</div>
+                    <div class="wish-sub">endless love</div>
+                </div>
+                <!-- wish 4 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">🍫</div>
+                    <div class="wish-text">You are the chocolate to my heart, sweet and irresistible.</div>
+                    <div class="wish-sub">xoxo</div>
+                </div>
+                <!-- wish 5 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">✨</div>
+                    <div class="wish-text">You're the reason I believe in fairytales.</div>
+                    <div class="wish-sub">my forever princess/prince</div>
+                </div>
+                <!-- wish 6 -->
+                <div class="wish-item">
+                    <div class="wish-emoji">🎈</div>
+                    <div class="wish-text">I love you more than all the stars in the sky.</div>
+                    <div class="wish-sub">infinity and beyond</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- additional quote insert (classic) -->
+        <div style="margin: 1.8rem 0; text-align: center; font-size: 1.8rem; font-family: 'Great Vibes'; color: #b63c5c;">
+            <i class="fas fa-heart" style="font-size: 1.4rem;"></i> “Where there is love, there is life.” <i class="fas fa-heart" style="font-size: 1.4rem;"></i>
+            <div style="font-size: 1.2rem; font-family: Quicksand;">— Mahatma Gandhi</div>
+        </div>
+
+        <!-- closing footer message -->
+        <div class="footer-message">
+            <p>
+                <i class="fas fa-heart"></i> Wishing you a day filled with love, laughter, and happily-ever-after. <i class="fas fa-heart"></i>
+            </p>
+            <div class="footer-hearts">
+                ❤️ 💛 💚 💙 💜
+            </div>
+            <div style="margin-top: 1rem; font-size: 1.3rem; color: #b24563;">
+                Happy Valentine's, wherever you are.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            // floating hearts background generator
+            const bgContainer = document.getElementById('floatingBg');
+            const heartArray = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍', '💔', '❤️‍🔥', '💖', '💗', '💘', '💝', '💞', '💕'];
+
+            function addFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.classList.add('bg-heart');
+                heart.textContent = heartArray[Math.floor(Math.random() * heartArray.length)];
+                
+                const size = Math.random() * 2.4 + 1.2; // 1.2rem to 3.6rem
+                heart.style.fontSize = size + 'rem';
+                heart.style.left = Math.random() * 100 + '%';
+                const duration = Math.random() * 12 + 8; // 8-20s
+                heart.style.animation = `levitate ${duration}s linear infinite`;
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                // random opacity and color
+                const hue = 330 + Math.floor(Math.random() * 30); // red-pink range
+                heart.style.color = `hsla(${hue}, 70%, 70%, 0.3)`;
+                
+                bgContainer.appendChild(heart);
+
+                setTimeout(() => {
+                    heart.remove();
+                }, (duration + 2) * 1000);
+            }
+
+            // initial batch
+            for (let i = 0; i < 25; i++) {
+                setTimeout(addFloatingHeart, i * 150);
+            }
+            setInterval(addFloatingHeart, 1000);
+        })();
+    </script>
+</body>
+</html>
